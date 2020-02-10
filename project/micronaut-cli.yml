@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: cindodcindy.androidbackend
+---
+testFramework: junit
+sourceLanguage: java
