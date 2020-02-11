@@ -16,7 +16,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 
 @Entity
-@Table(name =user_data)
+@Table(name ="user_data")
 public class UserData {
 
     @Id
@@ -40,7 +40,7 @@ public class UserData {
 
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    @Cloumn(name ="updated_at")
+    @Column(name = "updated_at")
     private Date updated_at;
 
     @Column(name="deleted_at", nullable=false)
@@ -91,7 +91,7 @@ public class UserData {
     }
 
     public void setUpdated(Date updated_at){
-        this.updated_at;
+        this.updated_at = updated_at;
     }
 
     public Date getDeleted(){

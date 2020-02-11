@@ -1,4 +1,4 @@
-package cindodcindy.androidbackend.model;
+/*package cindodcindy.androidbackend.model;
 
 import java.util.Date;
 
@@ -95,3 +95,4 @@ public class KontenData{
 
      
 }
+*/

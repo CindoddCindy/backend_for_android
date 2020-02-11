@@ -1,4 +1,4 @@
-package cindodcindy.androidbackend.infc;
+package cindodcindy.androidbackend.intfc;
 
 import cindodcindy.androidbackend.model.UserData;
 

@@ -37,7 +37,16 @@ dependencies {
     testImplementation "org.junit.jupiter:junit-jupiter-api"
     testImplementation "io.micronaut.test:micronaut-test-junit5"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
-}
+
+    implementation 'com.google.code.gson:gson:2.8.5'
+    
+    //nambah
+    implementation "io.micronaut.configuration:micronaut-hibernate-jpa"
+    implementation "io.micronaut.configuration:micronaut-jdbc-tomcat"
+    runtime "org.postgresql:postgresql:9.3-1100-jdbc4"
+
+    
+    }
 
 test.classpath += configurations.developmentOnly
 
