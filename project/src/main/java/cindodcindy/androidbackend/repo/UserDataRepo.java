@@ -40,7 +40,7 @@ public class UserDataRepo implements UserDataInf{
     public Long save(@NotNull UserData userData){
         try{
             entityManager.persist(userData);
-            return userData.getId();
+            return userData.getId(id);
         }catch (Exception e){
             return null;
         }

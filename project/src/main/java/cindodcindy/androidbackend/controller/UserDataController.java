@@ -51,9 +51,9 @@ public class UserDataController{
 
     @Post(consumes = MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String save(@Body final UserData userData){
+    public Long save(@Body final UserData userData){
         final HashMap<String, Object> data = new HashMap<>();
-        Long result = userDataInf.save(userData);
+        UserData result = userDataInf.save(userData);
         if(result !=null){
             data.put("status","ok");
             data.put("id",result);
@@ -63,6 +63,19 @@ public class UserDataController{
         return (new Gson()).toJson(data);
 
     }
+    /*
+
+     @Post(consumes=MediaType.APPLICATION_JSON)//APPLICATION_FORM_URLENCODED
+    public String save(@Body UserData t) {
+        HashMap<String, Object> data = new HashMap<>();
+        if (userDataInf.save(t)) {
+            data.put("status", "ok");
+        } else {
+            data.put("status", "fail");
+        }
+        return (new Gson()).toJson(data);
+    }
+    */
 
     @Get("{/id}")
     @Produces(MediaType.APPLICATION_JSON)
