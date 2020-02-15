@@ -43,7 +43,7 @@ public class UserData {
     @Column(name = "updated_at")
     private Date updated_at;
 
-    @Column(name="deleted_at", nullable=false)
+    @Column(name = "deleted_at", nullable=true)
     private Date deleted_at;
 
     public Long getId(){

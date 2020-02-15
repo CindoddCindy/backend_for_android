@@ -37,10 +37,10 @@ public class UserDataRepo implements UserDataInf{
 
     @Transactional
     @Override
-    public Long save(@NotNull UserData userData){
+    public String save(@NotNull UserData userData){
         try{
             entityManager.persist(userData);
-            return userData.getId(id);
+            return userData.getName();
         }catch (Exception e){
             return null;
         }

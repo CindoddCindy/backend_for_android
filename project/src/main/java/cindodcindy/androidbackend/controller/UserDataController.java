@@ -51,9 +51,9 @@ public class UserDataController{
 
     @Post(consumes = MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Long save(@Body final UserData userData){
+    public String save(@Body final UserData userData){
         final HashMap<String, Object> data = new HashMap<>();
-        UserData result = userDataInf.save(userData);
+        String result = userDataInf.save(userData);
         if(result !=null){
             data.put("status","ok");
             data.put("id",result);
