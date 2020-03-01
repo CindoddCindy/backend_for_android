@@ -49,7 +49,7 @@ public Long save(@NotNull Admin admin){
 
 @Transactional(readOnly = true)
 @Override
-public Long sizs(){
+public Long size(){
     return entityManager.createQuery("select count(*) from Admin", Long.class)
     .getSingleResult();
 }
@@ -62,12 +62,11 @@ public Admin findById(@NotNull Long id){
 
 @Transactional
 @Override
-public boolean update(@NotNull Long id, String keterangan, String gambar){
+public boolean update(@NotNull Long id, String admin_post){
     try{
         Admin admin = entityManager.find(Admin.class, id);
-        if(keterangan!=null) admin.setKeterangan(keterangan);
-        if(gambar !=null) admin.setGambar(gambar);
-        admin.setUpdated_at(new Date());
+        if(admin_post !=null) admin.setAdminPost(admin_post);
+        admin.setUpdated(new Date());
         return true;
     }catch (Exception e){
         return false;

@@ -49,7 +49,7 @@ public class KontenData{
          this.id=id;
      }
 
-     public String getKeterngan(){
+     public String getKeterangan(){
          return keterangan;
      }
 

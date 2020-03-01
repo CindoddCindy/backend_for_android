@@ -28,9 +28,9 @@ public class KontenDataRepository implements KontenDataInterface{
 
     @Transactional(readOnly = true)
     @Override
-    public List<KontenDataRepository> findAll(int page, int limit){
+    public List<KontenData> findAll(int page, int limit){
         TypedQuery<KontenData> query = entityManager
-        .creteQuery("form KontenData", KontenData.class)
+        .createQuery("from KontenData", KontenData.class)
         .setFirstResult(page > 1 ? page * limit - limit : 0)
         .setMaxResults(limit);
         return query.getResultList();
@@ -50,7 +50,7 @@ public class KontenDataRepository implements KontenDataInterface{
 @Transactional(readOnly = true)
 @Override
 public Long size(){
-    return entityManager.creteQuery("select count(*) from KontenData", Long.class).getSingleResult();
+    return entityManager.createQuery(" select count (*) from KontenData ", Long.class).getSingleResult();
 
 }
 
@@ -62,7 +62,7 @@ public KontenData findById(@NotNull Long id){
 
 @Transactional
 @Override
-public boolean update(@NotNull Long id, String name){
+public boolean update(@NotNull Long id, String keterangan, String gambar){
     try{
 
         KontenData kontenData = entityManager.find(KontenData.class,id);

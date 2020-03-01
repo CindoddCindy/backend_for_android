@@ -53,7 +53,7 @@ public class KontenDataController{
     @Produces(MediaType.APPLICATION_JSON)
     public String save(@Body final KontenData kontenData){
         final HashMap<String, Object> data = new HashMap<>();
-        Long result = kontenDataRepository.save(level);
+        Long result = kontenDataRepository.save(kontenData);
         if (result != null) {
             data.put("status", "ok");
             data.put("id", result);
@@ -73,7 +73,7 @@ public class KontenDataController{
     @Produces(MediaType.APPLICATION_JSON)
     public String update(@PathVariable @Nullable final Long id, @Body final KontenData kontenData){
         final HashMap<String, Object> data = new HashMap<>();
-        if (kontenDataRepository.update(id, level.getName())) {
+        if (kontenDataRepository.update(id, kontenData.getKeterangan(), kontenData.getGambar())) {
             data.put("status", "ok");
         }else{
             data.put("status", "fail");
