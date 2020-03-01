@@ -12,7 +12,8 @@ import javax.validation.constraints.NotNull;
 import io.micronaut.configuration.hibernate.jpa.scope.CurrentSession;
 import io.micronaut.spring.tx.annotation.Transactional;
 
-import steamdom.master.model.Course;
+import cindodcindy.androidbackend.model.Admin;
+import cindodcindy.androidbackend.intfc.AdminInterface;
 
 
 

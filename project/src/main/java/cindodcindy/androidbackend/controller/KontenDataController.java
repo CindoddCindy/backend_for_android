@@ -1,6 +1,6 @@
 package cindodcindy.androidbackend.controller;
 
-import steamdom.master.model.Level;
+import cindodcindy.androidbackend.model.KontenData;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
@@ -15,7 +15,8 @@ import io.micronaut.validation.Validated;
 import io.reactivex.annotations.Nullable;
 
 import com.google.gson.Gson;
-import steamdom.master.repository.*;
+import cindodcindy.androidbackend.repo.KontenDataRepository;
+
 
 import java.util.HashMap;
 import java.util.List;

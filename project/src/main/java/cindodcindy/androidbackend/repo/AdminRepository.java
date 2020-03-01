@@ -12,7 +12,8 @@ import javax.validation.constraints.NotNull;
 import io.micronaut.configuration.hibernate.jpa.scope.CurrentSession;
 import io.micronaut.spring.tx.annotation.Transactional;
 
-import steamdom.master.model.Course;
+import cindodcindy.androidbackend.model.Admin;
+import cindodcindy.androidbackend.intfc.AdminInterface;
 
 
 
@@ -28,8 +29,9 @@ public class AdminRepository implements AdminInterface{
 @Transactional(readOnly=true)
 @Override
 public List<Admin> findAll(int page, int limit){
-    TypedQuery<Admin> query = entityManager.createQuery("from Admin", Admin admin)
-    .setFirstResult(page>1 page * limit - limit : 0)
+    TypedQuery<Admin> query = entityManager
+    .createQuery("from Admin", Admin.class)
+    .setFirstResult(page>1 ? page * limit - limit : 0)
     .setMaxResults(limit);
     return query.getResultList();
 }

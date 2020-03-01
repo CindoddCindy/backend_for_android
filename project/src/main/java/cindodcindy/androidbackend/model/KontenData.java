@@ -77,10 +77,7 @@ public class KontenData{
          return updated_at;
      }
 
-     public void setUpdated(Date updated_at){
-         this.updated_at=updated_at;
-     }
-
+    
      public Date getDeleted(){
          return deleted_at;
      }

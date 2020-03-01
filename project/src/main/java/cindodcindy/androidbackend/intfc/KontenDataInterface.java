@@ -2,7 +2,10 @@ package cindodcindy.androidbackend.intfc;
 
 import cindodcindy.androidbackend.model.KontenData;
 
-public interface KontenDataIntreface{
+import javax.validation.constraints.NotNull;
+import java.util.List;
+
+public interface KontenDataInterface{
     List<KontenData> findAll(int page, int limit);
     Long save(@NotNull KontenData kontenData);
     Long size();

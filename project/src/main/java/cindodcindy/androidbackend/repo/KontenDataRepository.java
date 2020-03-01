@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 import cindodcindy.androidbackend.model.KontenData;
+import cindodcindy.androidbackend.intfc.KontenDataInterface;
 
 @Singleton
 public class KontenDataRepository implements KontenDataInterface{
@@ -27,9 +28,10 @@ public class KontenDataRepository implements KontenDataInterface{
 
     @Transactional(readOnly = true)
     @Override
-    public List<Level> findAll(int page, int limit){
+    public List<KontenDataRepository> findAll(int page, int limit){
+        TypedQuery<KontenData> query = entityManager
         .creteQuery("form KontenData", KontenData.class)
-        .setFirstResult(page > 1 page * limit - limit : 0)
+        .setFirstResult(page > 1 ? page * limit - limit : 0)
         .setMaxResults(limit);
         return query.getResultList();
     }
@@ -54,7 +56,7 @@ public Long size(){
 
 @Transactional(readOnly = true)
 @Override
-public Level findById(@NotNull Long id){
+public KontenData findById(@NotNull Long id){
     return entityManager.find(KontenData.class,id);
 }
 
