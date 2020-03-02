@@ -6,13 +6,17 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.GenerationType;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
 
 @Entity
 @Table(name = "konten_data")
@@ -21,6 +25,21 @@ public class KontenData{
      @Id
      @GeneratedValue(strategy=GenerationType.IDENTITY)
      private Long id;
+
+
+    @ManyToOne(optional=false)
+    @JoinColumn(name = "admin_id", referencedColumnName = "admin_id", insertable=false, updatable=false)
+    private Admin admin;
+    private Long admin_id;
+
+    @ManyToOne(optional=false)
+    @JoinColumn(name = "userdata_id", referencedColumnName = "userdata_id", insertable=false, updatable=false)
+    private UserData userData;
+    private Long userdata_id;
+
+
+
+
 
      @Column(name="keterangan", nullable = false)
      private String keterangan;
@@ -40,6 +59,38 @@ public class KontenData{
 
      @Column(name = "deleted_at", nullable=true)
      private Date deleted_at;
+
+     public UserData getUserData(){
+         return userData;
+     }
+
+     public void setUserData(UserData userData){
+         this.userData=userData;
+     }
+
+     public Long getUserDataId(){
+         return userdata_id;
+     }
+
+     public void setUserDataId(Long userdata_id){
+         this.userdata_id=userdata_id;
+     }
+
+     public Admin getAdmin(){
+         return admin;
+     }
+
+     public void setAdmin(Admin admin){
+         this.admin=admin;
+     }
+
+     public Long getAdminId(){
+         return admin_id;
+     }
+
+     public void setAdminId(Long admin_id){
+         this.admin_id=admin_id;
+     }
 
      public Long getId(){
          return id;

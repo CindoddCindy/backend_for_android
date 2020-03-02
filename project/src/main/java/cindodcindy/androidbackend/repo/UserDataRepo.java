@@ -57,16 +57,16 @@ public class UserDataRepo implements UserDataInf{
 
     @Transactional(readOnly = true)
     @Override
-    public UserData findById(@NotNull Long id) {
-        return entityManager.find(UserData.class, id);
+    public UserData findById(@NotNull Long userdata_id) {
+        return entityManager.find(UserData.class, userdata_id);
     }
 
 
     @Transactional
     @Override
-    public boolean update(@NotNull Long id, String name, String email, String password){
+    public boolean update(@NotNull Long userdata_id, String name, String email, String password){
         try{
-            UserData userData = entityManager.find(UserData.class,id);
+            UserData userData = entityManager.find(UserData.class,userdata_id);
             if(name !=null) userData.setName(name);
             if(email !=null) userData.setEmail(email);
             if(password!=null) userData.setPassword(password);
@@ -81,9 +81,9 @@ public class UserDataRepo implements UserDataInf{
 
     @Transactional
     @Override
-    public boolean destroy(@NotNull Long id){
+    public boolean destroy(@NotNull Long userdata_id){
         try{
-            UserData userData = entityManager.find(UserData.class,id);
+            UserData userData = entityManager.find(UserData.class,userdata_id);
             entityManager.remove(userData);
             return true;
         }catch(Exception e){

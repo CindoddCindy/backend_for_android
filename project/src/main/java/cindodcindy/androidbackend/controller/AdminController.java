@@ -63,17 +63,17 @@ public class AdminController{
         return (new Gson()).toJson(data);
     }
 
-    @Get("{/id}")
+    @Get("{/admin_id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String show(@PathVariable @Nullable final Long id){
-        return (new Gson().toJson(adminRepository.findById(id)));
+    public String show(@PathVariable @Nullable final Long admin_id){
+        return (new Gson().toJson(adminRepository.findById(admin_id)));
     }
 
     @Put("{/id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String update(@PathVariable @Nullable final Long id, @Body final Admin admin){
+    public String update(@PathVariable @Nullable final Long admin_id, @Body final Admin admin){
         final HashMap<String, Object> data = new HashMap<>();
-        if (adminRepository.update(id, admin.getAdminPost())) {
+        if (adminRepository.update(admin_id, admin.getAdminPost())) {
             data.put("status", "ok");
         }else{
             data.put("status", "fail");
@@ -81,11 +81,11 @@ public class AdminController{
         return (new Gson().toJson(data));
     }
 
-    @Delete("{/id}")
+    @Delete("{/admin_id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String destroy(@PathVariable @Nullable final Long id){
+    public String destroy(@PathVariable @Nullable final Long admin_id){
         final HashMap<String, Object> data = new HashMap<>();
-        if (adminRepository.destroy(id)) {
+        if (adminRepository.destroy(admin_id)) {
             data.put("status", "ok");
         }else{
             data.put("status", "fail");

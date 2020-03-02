@@ -56,15 +56,15 @@ public Long size(){
 
 @Transactional(readOnly = true)
 @Override
-public Admin findById(@NotNull Long id){
-    return entityManager.find(Admin.class,id);
+public Admin findById(@NotNull Long admin_id){
+    return entityManager.find(Admin.class,admin_id);
 }
 
 @Transactional
 @Override
-public boolean update(@NotNull Long id, String admin_post){
+public boolean update(@NotNull Long admin_id, String admin_post){
     try{
-        Admin admin = entityManager.find(Admin.class, id);
+        Admin admin = entityManager.find(Admin.class, admin_id);
         if(admin_post !=null) admin.setAdminPost(admin_post);
         admin.setUpdated(new Date());
         return true;
@@ -77,9 +77,9 @@ public boolean update(@NotNull Long id, String admin_post){
 
 @Transactional
 @Override
-public boolean destroy(@NotNull Long id){
+public boolean destroy(@NotNull Long admin_id){
     try{
-        Admin admin = entityManager.find(Admin.class,id);
+        Admin admin = entityManager.find(Admin.class,admin_id);
         entityManager.remove(admin);
         return true;
     }catch (Exception e){

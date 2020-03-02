@@ -21,7 +21,7 @@ public class UserData {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
+    private Long userdata_id;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -47,11 +47,11 @@ public class UserData {
     private Date deleted_at;
 
     public Long getId(){
-        return id;
+        return userdata_id;
     }
 
-    public void setId(Long id){
-        this.id=id;
+    public void setId(Long userdata_id){
+        this.userdata_id=userdata_id;
     }
 
     public String getName(){

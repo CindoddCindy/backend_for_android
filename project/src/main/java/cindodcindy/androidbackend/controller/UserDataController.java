@@ -77,18 +77,18 @@ public class UserDataController{
     }
     */
 
-    @Get("{/id}")
+    @Get("{/userdata_id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String show (@PathVariable @Nullable final Long id){
-        return(new Gson().toJson(userDataInf.findById(id)));
+    public String show (@PathVariable @Nullable final Long userdata_id){
+        return(new Gson().toJson(userDataInf.findById(userdata_id)));
 
     }
 
-    @Put("{/id}")
+    @Put("{/userdata_id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String upadate(@PathVariable @Nullable final Long id, @Body final UserData userData){
+    public String upadate(@PathVariable @Nullable final Long userdata_id, @Body final UserData userData){
         final HashMap<String, Object> data = new HashMap<>();
-        if(userDataInf.update(id, userData.getName(), userData.getEmail(), userData.getPassword())){
+        if(userDataInf.update(userdata_id, userData.getName(), userData.getEmail(), userData.getPassword())){
             data.put("status","ok");
 
         }else{
@@ -97,11 +97,11 @@ public class UserDataController{
         return(new Gson().toJson(data));
     }
 
-    @Delete("{/id}")
+    @Delete("{/userdata_id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String destroy(@PathVariable @Nullable final Long id){
+    public String destroy(@PathVariable @Nullable final Long userdata_id){
         final HashMap<String, Object>data = new HashMap<>();
-        if(userDataInf.destroy(id)){
+        if(userDataInf.destroy(userdata_id)){
             data.put("status","ok");
 
         }else{

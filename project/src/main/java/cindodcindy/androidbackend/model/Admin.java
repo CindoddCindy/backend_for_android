@@ -18,7 +18,7 @@ public class Admin{
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
+    private Long admin_id;
 
     @Column(name = "admin_post", nullable = false)
     private String admin_post;
@@ -36,12 +36,12 @@ public class Admin{
     @Column(name="deleted_at", nullable = true)
     private Date deleted_at;
 
-    public void setId(Long id){
-        this.id=id;
+    public void setId(Long admin_id){
+        this.admin_id=admin_id;
     }
 
     public Long getId(){
-        return id;
+        return admin_id;
     }
 
     public void setAdminPost(String admin_post){
