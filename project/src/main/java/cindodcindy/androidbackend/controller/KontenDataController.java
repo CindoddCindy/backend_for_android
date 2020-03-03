@@ -15,6 +15,20 @@ import io.micronaut.validation.Validated;
 import io.reactivex.annotations.Nullable;
 
 import com.google.gson.Gson;
+
+
+import java.util.Date;
+import java.util.List;
+
+import javax.inject.Singleton;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import javax.validation.constraints.NotNull;
+
+import io.micronaut.configuration.hibernate.jpa.scope.CurrentSession;
+import io.micronaut.spring.tx.annotation.Transactional;
+
 import cindodcindy.androidbackend.repo.KontenDataRepository;
 
 
