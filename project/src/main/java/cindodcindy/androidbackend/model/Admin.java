@@ -14,6 +14,8 @@ import javax.persistence.GenerationType;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+@Entity
+@Table(name ="Admin")
 public class Admin{
 
     @Id

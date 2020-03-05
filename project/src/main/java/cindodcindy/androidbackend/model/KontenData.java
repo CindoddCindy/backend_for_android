@@ -27,12 +27,12 @@ public class KontenData{
      private Long id;
 
 
-    @ManyToOne(optional=false)
+    @ManyToOne(optional=true)
     @JoinColumn(name = "admin_id", referencedColumnName = "admin_id", insertable=false, updatable=false)
     private Admin admin;
     private Long admin_id;
 
-    @ManyToOne(optional=false)
+    @ManyToOne(optional=true)
     @JoinColumn(name = "userdata_id", referencedColumnName = "userdata_id", insertable=false, updatable=false)
     private UserData userData;
     private Long userdata_id;
